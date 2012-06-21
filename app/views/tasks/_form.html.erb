@@ -1,0 +1,12 @@
+<ul>
+	<% @task.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+    <% end %>
+</ul>
+
+
+<%= form_for @task do |form| %>
+	<%= form.text_field :name %>
+	<%= form.datetime_select :due_at %>
+	<%= form.submit %>
+<% end %>

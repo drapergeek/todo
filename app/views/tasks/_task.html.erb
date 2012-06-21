@@ -1,0 +1,10 @@
+<li class="completed-<%= task.completed %>">
+	<%= task.name %>
+		Created: <%= time_ago_in_words(task.created_at) %> ago
+	<%= task.due_date %>
+	<% unless task.completed? %>
+		<%= button_to "Complete", completed_tasks_path(id: task.id) %>
+		<%= link_to "Edit", edit_task_path(task) %> 
+	<% end %>
+	<%= link_to "(x)", task, method: :delete, confirm: "Are you sure?" %>
+</li>
