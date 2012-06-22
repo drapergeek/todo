@@ -1,4 +1,6 @@
 Todo::Application.routes.draw do
+  resources :lists
+
   resources :tasks
   resources :completed_tasks, only: [:create]
   # The priority is based upon order of creation:

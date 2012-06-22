@@ -6,7 +6,7 @@
 
 
 <%= form_for @task do |form| %>
-	<%= form.text_field :name %>
-	<%= form.datetime_select :due_at %>
+	<div>Name: <%= form.text_field :name %></div>
+	<div>Due Date: <%= form.datetime_select :due_at %></div>
 	<%= form.submit %>
 <% end %>

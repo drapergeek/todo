@@ -1,5 +1,7 @@
 class Task < ActiveRecord::Base
-  attr_accessible :name, :due_at
+  belongs_to :list
+  
+  attr_accessible :name, :due_at, :list_id
   validates :name, presence: true
   
   scope :complete, where(:completed => true)
