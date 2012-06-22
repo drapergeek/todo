@@ -1,8 +1,9 @@
 Todo::Application.routes.draw do
+  resources :users
   resources :lists
-
   resources :tasks
   resources :completed_tasks, only: [:create]
+  resource :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

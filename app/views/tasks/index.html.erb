@@ -1,8 +1,11 @@
 <h2>Tasks</h2>
-<strong>Total tasks: <%= @tasks.count %></strong>
-<ul>
-	<%= render @tasks %>
-</ul>
+
+<% @lists.each do |list| %>
+	<strong><%= list.name %>: <%= list.tasks.count %></strong>
+	<ul>
+		<%= render list.tasks %>
+	</ul>
+<% end %>
 
 <h2>New Task</h2>
 

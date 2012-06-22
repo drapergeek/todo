@@ -8,5 +8,6 @@
 <%= form_for @task do |form| %>
 	<div>Name: <%= form.text_field :name %></div>
 	<div>Due Date: <%= form.datetime_select :due_at %></div>
+	<div>List: <%= form.collection_select :list_id, @lists, :id, :name, :prompt => true %>
 	<%= form.submit %>
 <% end %>

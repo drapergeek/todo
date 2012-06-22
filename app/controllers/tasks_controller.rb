@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.completed_first.newest_first
+    @lists = List.all(:include => :tasks)
     @task = Task.new
   end
    
@@ -11,6 +11,7 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       @tasks = Task.all
+      @lists = List.all
       flash[:notice] = "Could not save"
       render 'index'
     end
@@ -18,10 +19,12 @@ class TasksController < ApplicationController
   
   def edit
     @task = Task.find(params[:id])
+    @lists = List.all
   end
   
   def update
     @task = Task.find(params[:id])
+    @lists = List.all
      if @task.update_attributes(params[:task])
         flash[:notice] = "Updated task!"
         redirect_to tasks_path
